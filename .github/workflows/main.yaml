@@ -1,6 +1,10 @@
 name: Python 3.10 Workflow
 
 on:
+  # Trigger the workflow every 3 minutes
+  schedule:
+    - cron: '*/3 * * * *'  # Every 3 minutes
+
   push:
     branches:
       - main
@@ -107,7 +111,7 @@ jobs:
           # Set MLFLOW_TRACKING_URI environment variable if needed
           export MLFLOW_TRACKING_URI=http://localhost:5000  # Or your remote MLflow server URI
           
-          docker run -d -p 8080:8080 --ipc="host" --name=text_summarizer \
+          docker run -d -p 8080:8080 --ipc="host" --name=mnist \
             -e "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}" \
             -e "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}" \
             -e "AWS_REGION=${{ secrets.AWS_REGION }}" \
