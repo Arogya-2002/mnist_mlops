@@ -15,6 +15,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose port 5000 (if you are running MLflow or a web app on this port)
 EXPOSE 5000
+EXPOSE 8080
 
-# Set the command to run your app
-CMD ["python3", "app.py"]
+# Run both MLflow and Uvicorn in parallel
+CMD ["sh", "-c", "mlflow server --host 0.0.0.0 --port 5000 & uvicorn app:app --host 0.0.0.0 --port 8080"]
+
