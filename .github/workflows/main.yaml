@@ -1,10 +1,6 @@
 name: Python 3.10 Workflow
 
 on:
-  # Trigger the workflow every 3 minutes
-  schedule:
-    - cron: '*/3 * * * *'  # Every 3 minutes
-
   push:
     branches:
       - main

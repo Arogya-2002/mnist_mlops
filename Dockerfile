@@ -18,5 +18,6 @@ EXPOSE 5000
 EXPOSE 8080
 
 # Run both MLflow and Uvicorn in parallel
-CMD ["sh", "-c", "mlflow server --host 0.0.0.0 --port 5000 & uvicorn app:app --host 0.0.0.0 --port 8080"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+
 
