@@ -2,6 +2,7 @@ from src.components.data_ingestion import DataIngestion,DataIngestionConfig
 from src.components.data_transformation import DataTransformation,DataTransformationConfig
 from src.components.model_trainer import ModelTrainer,ModelTrainerConfig
 from src.components.model_evaluation import ModelEvaluation,ModelEvaluationConfig
+import pandas as pd
 
 
 obj=DataIngestion()
