@@ -9,8 +9,6 @@ import numpy as np
 import tensorflow as tf
 import mlflow
 
-mlflow.set_tracking_uri("http://localhost:5000")
-
 @dataclass
 class ModelTrainerConfig:
     trained_model_file_path: str = os.path.join('artifacts', 'model.keras')
@@ -55,38 +53,27 @@ class ModelTrainer:
     def model_trainer(self, X_train, y_train, x_test, y_test):
         logging.info("Compiling the model")
 
-        with mlflow.start_run():
-            mlflow.log_param("optimizer", str(self.model_trainer_config.optimizer))
-            mlflow.log_param("loss_function", self.model_trainer_config.loss)
-            mlflow.log_param("batch_size", BATCH_SIZE)
-            mlflow.log_param("epochs", EPOCHS)
-
             # Log the model summary to MLflow
-            model = self.build_model()
-            model_summary_str = []
-            model.summary(print_fn=lambda x: model_summary_str.append(x))
-            mlflow.log_param("model_architecture", "\n".join(model_summary_str))
+        model = self.build_model()
+        model_summary_str = []
+        model.summary(print_fn=lambda x: model_summary_str.append(x))
+        mlflow.log_param("model_architecture", "\n".join(model_summary_str))
 
-            model.compile(optimizer=self.model_trainer_config.optimizer, loss=self.model_trainer_config.loss, metrics=['acc'])
+        model.compile(optimizer=self.model_trainer_config.optimizer, loss=self.model_trainer_config.loss, metrics=['acc'])
 
-            history = model.fit(X_train, y_train,
+        history = model.fit(X_train, y_train,
                                 batch_size=BATCH_SIZE,
                                 epochs=EPOCHS,
                                 validation_split=0.1,
                                 callbacks=[self.callbacks])
 
             # Log metrics for each epoch
-            for epoch in range(EPOCHS):
-                mlflow.log_metric("epoch_loss", history.history['loss'][epoch], step=epoch)
-                mlflow.log_metric("epoch_accuracy", history.history['acc'][epoch], step=epoch)
 
             # Log final metrics
-            final_loss = history.history['loss'][-1]
-            final_acc = history.history['acc'][-1]
-            mlflow.log_metric("final_loss", final_loss)
-            mlflow.log_metric("final_accuracy", final_acc)
+        final_loss = history.history['loss'][-1]
+        final_acc = history.history['acc'][-1]
 
-            logging.info(f"Model saved successfully at: {self.model_trainer_config.trained_model_file_path}")
-            model.save(self.model_trainer_config.trained_model_file_path)
+        logging.info(f"Model saved successfully at: {self.model_trainer_config.trained_model_file_path}")
+        model.save(self.model_trainer_config.trained_model_file_path)
 
         return x_test, y_test
