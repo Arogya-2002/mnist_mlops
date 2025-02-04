@@ -1,0 +1,15 @@
+[ 2025-02-03 17:59:48,270 ] 25 root - INFO - Initiating data ingestion
+[ 2025-02-03 17:59:48,270 ] 28 root - INFO - Saving the files into the artifacts folder
+[ 2025-02-03 17:59:48,585 ] 36 root - INFO - Successfully saved the MNIST data into the artifacts folder
+[ 2025-02-03 17:59:48,589 ] 26 root - INFO - Initiating Data transformation
+[ 2025-02-03 17:59:48,589 ] 27 root - INFO - Loading the data from the artifacts folder
+[ 2025-02-03 17:59:48,635 ] 38 root - INFO - Normalizing and Reshaping the data
+[ 2025-02-03 17:59:48,786 ] 43 root - INFO - Normalizing and Reshaping the data completed
+[ 2025-02-03 17:59:48,793 ] 45 root - INFO - Label Encoding the output variables
+[ 2025-02-03 17:59:48,801 ] 48 root - INFO - Label encoding completed
+[ 2025-02-03 17:59:48,802 ] 56 root - INFO - Compiling the model
+[ 2025-02-03 17:59:51,201 ] 35 root - INFO - Building the CNN model
+[ 2025-02-03 17:59:51,268 ] 50 root - INFO - Model built successfully
+[ 2025-02-03 18:01:11,849 ] 89 root - INFO - Model saved successfully at: artifacts\model.keras
+[ 2025-02-03 18:01:18,696 ] 33 root - INFO - The test accuracy is: 0.9858999848365784
+[ 2025-02-03 18:01:18,696 ] 34 root - INFO - The test loss is: 0.042678337544202805

@@ -1,5 +1,4 @@
 mlruns/
 artifacts/
 venv/
-logs/
 mlartifacts/
