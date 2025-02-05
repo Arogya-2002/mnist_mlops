@@ -1,13 +1,28 @@
 from fastapi import FastAPI, UploadFile, File, BackgroundTasks
 from fastapi.responses import JSONResponse, PlainTextResponse
+from fastapi.middleware.cors import CORSMiddleware
 from src.pipeline.prediction_pipeline import PredictPipeline
+
+from uvicorn import run as app_run
+from fastapi.responses import Response
+from starlette.responses import RedirectResponse
+
 import shutil
 import os
-import uvicorn
 import logging
 
 # Initialize FastAPI app
 app = FastAPI()
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Initialize the prediction pipeline
 predict_pipeline = PredictPipeline()
@@ -16,12 +31,12 @@ predict_pipeline = PredictPipeline()
 logging.basicConfig(level=logging.INFO)
 
 # Define a root route ("/")
-@app.get("/")
-async def root():
-    return PlainTextResponse("FastAPI is running! Go to /predict or /train")
+@app.get("/", tags=["authentication"])
+async def index():
+    return RedirectResponse(url="/docs")
 
 # Define a POST route to handle image uploads and predictions
-@app.post("/predict/")
+@app.post("/predict")
 async def predict_image(file: UploadFile = File(...)):
     try:
         # Save the uploaded image to a temporary location
@@ -61,7 +76,7 @@ async def training(background_tasks: BackgroundTasks):
         # Run the training in the background
         logging.info("Training process triggered.")
         background_tasks.add_task(run_training)
-        return PlainTextResponse("Training has started in the background!")
+        return Response("Training has started in the background!")
 
     except Exception as e:
         logging.error(f"Error occurred during training: {str(e)}")
@@ -69,4 +84,4 @@ async def training(background_tasks: BackgroundTasks):
 
 # Run the FastAPI app
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+   app_run(app, host="0.0.0.0", port=8000)
