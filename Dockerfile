@@ -11,7 +11,7 @@ COPY . /app
 RUN apt update -y && apt install awscli -y
 
 # Install the dependencies from the requirements.txt file
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose port 5000 (if you are running MLflow or a web app on this port)
 # EXPOSE 5000
