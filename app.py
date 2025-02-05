@@ -55,7 +55,7 @@ async def training(background_tasks: BackgroundTasks):
 
 # Run the FastAPI app
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 # from flask import Flask, request, jsonify
 # from werkzeug.utils import secure_filename
 # import os
