@@ -1,0 +1,5 @@
+[ 2025-02-05 17:02:51,286 ] 62 root - INFO - Training process triggered.
+[ 2025-02-05 17:02:51,305 ] 51 root - INFO - Training started in the background...
+[ 2025-02-05 17:03:51,665 ] 53 root - INFO - Training completed.
+[ 2025-02-05 17:04:19,276 ] 34 root - INFO - Received image for prediction: th (4).jpeg
+[ 2025-02-05 17:04:20,426 ] 39 root - INFO - Prediction completed for th (4).jpeg, predicted class: 5
