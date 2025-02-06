@@ -1,0 +1,21 @@
+[ 2025-02-05 16:51:11,802 ] 12 root - INFO - Starting data ingestion process...
+[ 2025-02-05 16:51:11,802 ] 25 root - INFO - Initiating data ingestion
+[ 2025-02-05 16:51:11,802 ] 28 root - INFO - Saving the files into the artifacts folder
+[ 2025-02-05 16:51:12,009 ] 36 root - INFO - Successfully saved the MNIST data into the artifacts folder
+[ 2025-02-05 16:51:12,009 ] 15 root - INFO - Data ingestion completed. Data available at: None
+[ 2025-02-05 16:51:12,009 ] 18 root - INFO - Starting data transformation process...
+[ 2025-02-05 16:51:12,009 ] 26 root - INFO - Initiating Data transformation
+[ 2025-02-05 16:51:12,009 ] 27 root - INFO - Loading the data from the artifacts folder
+[ 2025-02-05 16:51:12,025 ] 38 root - INFO - Normalizing and Reshaping the data
+[ 2025-02-05 16:51:12,183 ] 43 root - INFO - Normalizing and Reshaping the data completed
+[ 2025-02-05 16:51:12,183 ] 45 root - INFO - Label Encoding the output variables
+[ 2025-02-05 16:51:12,185 ] 48 root - INFO - Label encoding completed
+[ 2025-02-05 16:51:12,185 ] 21 root - INFO - Data transformation completed.
+[ 2025-02-05 16:51:12,185 ] 24 root - INFO - Starting model training process...
+[ 2025-02-05 16:51:12,185 ] 54 root - INFO - Compiling the model
+[ 2025-02-05 16:51:12,185 ] 32 root - INFO - Building the CNN model
+[ 2025-02-05 16:51:12,279 ] 47 root - INFO - Model built successfully
+[ 2025-02-05 16:56:46,898 ] 67 root - INFO - Model saved successfully at: artifacts\model.keras
+[ 2025-02-05 16:56:51,070 ] 72 root - INFO - Test accuracy: 0.9944999814033508, Test loss: 0.01763165555894375
+[ 2025-02-05 16:56:51,080 ] 27 root - INFO - Model training completed and model saved.
+[ 2025-02-05 16:56:51,080 ] 30 root - INFO - Starting model evaluation process...

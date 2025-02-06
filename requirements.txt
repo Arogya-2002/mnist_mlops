@@ -6,4 +6,3 @@ scikit-learn
 fastapi
 uvicorn
 python-multipart
-mlflow
