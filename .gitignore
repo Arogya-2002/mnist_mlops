@@ -1,4 +1,5 @@
 mlruns/
 venv/
-artifacts/
 mlartifacts/
+artifacts/
+__pycache__/
