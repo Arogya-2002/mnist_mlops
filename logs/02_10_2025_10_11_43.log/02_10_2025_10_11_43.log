@@ -1,0 +1,7 @@
+[ 2025-02-10 10:13:03,410 ] 49 root - INFO - Received image for prediction: download.png
+[ 2025-02-10 10:13:04,021 ] 54 root - INFO - Prediction completed for download.png, predicted class: 8
+[ 2025-02-10 10:13:15,337 ] 77 root - INFO - Training process triggered.
+[ 2025-02-10 10:13:15,347 ] 66 root - INFO - Training started in the background...
+[ 2025-02-10 10:16:52,116 ] 68 root - INFO - Training completed.
+[ 2025-02-10 10:17:02,517 ] 49 root - INFO - Received image for prediction: Screenshot 2025-01-23 111758.png
+[ 2025-02-10 10:17:02,828 ] 54 root - INFO - Prediction completed for Screenshot 2025-01-23 111758.png, predicted class: 2

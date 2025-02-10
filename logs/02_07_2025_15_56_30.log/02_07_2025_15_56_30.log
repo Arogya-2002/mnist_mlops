@@ -1,0 +1,2 @@
+[ 2025-02-07 15:57:43,365 ] 49 root - INFO - Received image for prediction: download.png
+[ 2025-02-07 15:57:43,913 ] 54 root - INFO - Prediction completed for download.png, predicted class: 8

@@ -1,5 +1,7 @@
 from src.exception import CustomException
 from src.logs import logging
+from src.components.model_trainer import ModelTrainerConfig
+
 from dataclasses import dataclass
 import os
 import sys
@@ -9,7 +11,7 @@ from sklearn.metrics import confusion_matrix
 
 @dataclass
 class ModelEvaluationConfig:
-    trained_model_file_path: str = os.path.join('artifacts', 'model.keras')
+    trained_model_file_path: str = ModelTrainerConfig.trained_model_file_path
 
 class ModelEvaluation:
     def __init__(self):

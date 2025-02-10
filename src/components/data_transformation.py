@@ -1,6 +1,7 @@
 from src.exception import CustomException
 from src.logs import logging
 from dataclasses import dataclass
+from src.components.data_ingestion import DataIngestionConfig
 
 import os
 import sys
@@ -10,10 +11,10 @@ import tensorflow as tf
 
 @dataclass
 class DataTransformationConfig:
-    X_train: str = os.path.join('artifacts','dataset','mnist_x_train.npy')
-    y_train: str = os.path.join('artifacts','dataset','mnist_y_train.npy')
-    x_test: str = os.path.join('artifacts','dataset','mnist_x_test.npy')
-    y_test: str = os.path.join('artifacts','dataset','mnist_y_test.npy')
+    X_train: str = DataIngestionConfig.X_train
+    y_train: str = DataIngestionConfig.y_train
+    x_test: str = DataIngestionConfig.x_test
+    y_test: str = DataIngestionConfig.y_test
 
 
 class DataTransformation:
