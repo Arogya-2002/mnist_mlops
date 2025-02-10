@@ -4,6 +4,7 @@ from src.components.model_trainer import ModelTrainerConfig
 
 from dataclasses import dataclass
 import os
+import pandas
 import sys
 import tensorflow as tf
 import numpy as np
