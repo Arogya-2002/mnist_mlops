@@ -2,6 +2,7 @@ from fastapi import FastAPI, UploadFile, File, BackgroundTasks
 from fastapi.responses import JSONResponse, PlainTextResponse
 from fastapi.middleware.cors import CORSMiddleware
 from src.pipeline.prediction_pipeline import PredictPipeline
+import pandas as pd
 
 from uvicorn import run as app_run
 from fastapi.responses import Response
